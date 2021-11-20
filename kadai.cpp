@@ -11,9 +11,41 @@
 * ファイルを作成せよ。
 */
 /* -------------------------------------------------------------- */
-int nth_prime(unsigned int a, unsigned int d, unsigned int n);
-int main() {
- std::cout << nth_prime(367, 186, 151) << std::endl;
- // 以下、同様に、入出力例通りになるか確認せよ。
-return 0;
+
+bool is_prime(int num)
+for (int i = 2; i < num; i++) {
+    if (num % i == 0) {
+        if (num % i == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+int nth_prime(int a, int b, int n) {
+
+    int count = 0;
+    int e = a;
+    while (e < 100000) {
+        if (e == 1) {
+            exit(-1);
+        }
+
+        if (is_prime(e)) {
+            count++;
+        }
+        if (count == n) {
+            break;
+            cout << 0;
+        }
+        e += b;
+    }
+    return e;
+}
+
+int main()
+{
+    cout << nth_prime(259, 170, 40) << endl;
+
+    return 0;
 }
