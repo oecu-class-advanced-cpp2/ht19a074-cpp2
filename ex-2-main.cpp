@@ -2,6 +2,29 @@
 #include <string>
 namespace cpp2 {
  /* --------------------------------------------------------------------- */
+ 
+ mcxi(const std::string& s) : value_(0) {
+			int num = 0;
+			for (auto pos = s.begin(); pos != s.end(); ++pos) {
+				if (*pos>='2'&&*pos<='9') {
+					num += *pos-'0';
+				} else {
+					int u = unit(*pos);
+				}
+			}
+		}
+
+		/* ----------------------------------------------------------------- */
+		/*
+		operator+
+		2 つのオブジェクトの加算結果を取得します。
+		*/
+		/* ----------------------------------------------------------------- */
+		mcxi operator+(const mcxi& rhs) {
+			mcxi dest(*this);
+			dest.value_ += rhs.value_;
+			return dest;
+		}
  /*
  mcxi
  mcxi 記法を解析するクラスです。
@@ -10,6 +33,20 @@ namespace cpp2 {
  class mcxi {
 
  };
+ 
+ std::string to_string() const {
+  return "XXX";
+ }
+ 
+ void debug_mcxi() {
+  std::cout << "value_:" << value_ << std::endl;
+ }
+ 
+ private:
+ int value_;
+  };
+}
+ 
 } // namespace cpp2
 int main() {
  cpp2::mcxi a0("xi");
